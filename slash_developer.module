@@ -1,0 +1,40 @@
+<?php
+/**
+ * @file  slash_developer.module
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function slash_developer_menu() {
+  $items = array();
+  $items['developer'] = array(
+    'title' => 'Developer',
+    'page callback' => 'slash_developer_home',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['developer/catalog'] = array(
+    'title' => 'Developer API Catalog',
+    'page callback' => 'slash_developer_catalog',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Landing page for /developer goodies
+ */
+function slash_developer_home() {
+  return t('Happy Fun Time');
+}
+
+/**
+ * Landing page for /developer catalog
+ */
+function slash_developer_catalog() {
+  return t('Happy Fun Time w/ our Catalog (what a boring name)');
+}
+
+

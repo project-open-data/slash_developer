@@ -1,0 +1,6 @@
+name = /developer
+package = Federal Digital Government Strategy
+description = Provides a toolset for implementing the Federal Digital Government Strategy's /developer directive
+core = 7.x
+
+dependencies[] = libraries
