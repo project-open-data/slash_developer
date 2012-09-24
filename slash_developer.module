@@ -3,6 +3,8 @@
  * @file  slash_developer.module
  */
 
+include_once('slash_developer.features.inc');
+
 /**
  * Implements hook_menu().
  */
@@ -13,28 +15,14 @@ function slash_developer_menu() {
     'page callback' => 'slash_developer_home',
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
+    'file' => 'slash_developer.pages.inc',
   );
   $items['developer/catalog'] = array(
     'title' => 'Developer API Catalog',
     'page callback' => 'slash_developer_catalog',
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
+    'file' => 'slash_developer.pages.inc',
   );
   return $items;
 }
-
-/**
- * Landing page for /developer goodies
- */
-function slash_developer_home() {
-  return t('Happy Fun Time');
-}
-
-/**
- * Landing page for /developer catalog
- */
-function slash_developer_catalog() {
-  return t('Happy Fun Time w/ our Catalog (what a boring name)');
-}
-
-
