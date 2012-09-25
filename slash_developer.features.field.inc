@@ -162,34 +162,34 @@ function slash_developer_field_default_fields() {
       'entity_types' => array(),
       'field_name' => 'field_terms_of_service',
       'foreign keys' => array(
-        'nid' => array(
+        'node' => array(
           'columns' => array(
-            'nid' => 'nid',
+            'target_id' => 'nid',
           ),
           'table' => 'node',
         ),
       ),
       'indexes' => array(
-        'nid' => array(
-          0 => 'nid',
+        'target_id' => array(
+          0 => 'target_id',
         ),
       ),
       'locked' => '0',
-      'module' => 'node_reference',
+      'module' => 'entityreference',
       'settings' => array(
-        'referenceable_types' => array(
-          'article' => 0,
-          'page' => 'page',
-          'slash_developer_api' => 0,
+        'handler' => 'base',
+        'handler_settings' => array(
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'page' => 'page',
+          ),
         ),
-        'view' => array(
-          'args' => array(),
-          'display_name' => '',
-          'view_name' => '',
-        ),
+        'target_type' => 'node',
       ),
       'translatable' => '0',
-      'type' => 'node_reference',
+      'type' => 'entityreference',
     ),
     'field_instance' => array(
       'bundle' => 'slash_developer_api',
@@ -199,9 +199,11 @@ function slash_developer_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'node_reference',
-          'settings' => array(),
-          'type' => 'node_reference_default',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
           'weight' => 2,
         ),
         'teaser' => array(
@@ -220,13 +222,13 @@ function slash_developer_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'node_reference',
+        'module' => 'entityreference',
         'settings' => array(
-          'autocomplete_match' => 'contains',
-          'autocomplete_path' => 'node_reference/autocomplete',
+          'match_operator' => 'CONTAINS',
+          'path' => '',
           'size' => '60',
         ),
-        'type' => 'node_reference_autocomplete',
+        'type' => 'entityreference_autocomplete',
         'weight' => '-2',
       ),
     ),
