@@ -16,6 +16,7 @@ The slash_developer module requires the following modules be installed:
 
 1. ctools
 1. features
+1. entity
 1. entity_reference
 1. libraries
 1. strongarm
