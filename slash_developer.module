@@ -10,13 +10,15 @@ include_once('slash_developer.features.inc');
  */
 function slash_developer_menu() {
   $items = array();
-  $items['developer'] = array(
-    'title' => 'Developer',
-    'page callback' => 'slash_developer_home',
-    'access arguments' => array('access content'),
-    'type' => MENU_NORMAL_ITEM,
-    'file' => 'slash_developer.pages.inc',
-  );
+  if (variable_get('slash_developer_page_enabled')) {
+    $items['developer'] = array(
+      'title' => 'Developer',
+      'page callback' => 'slash_developer_home',
+      'access arguments' => array('access content'),
+      'type' => MENU_NORMAL_ITEM,
+      'file' => 'slash_developer.pages.inc',
+    );
+  }
   $items['developer/catalog'] = array(
     'title' => 'Developer API Catalog',
     'page callback' => 'slash_developer_catalog',
@@ -24,5 +26,22 @@ function slash_developer_menu() {
     'type' => MENU_NORMAL_ITEM,
     'file' => 'slash_developer.pages.inc',
   );
+  $items['admin/config/digitalstrategy/slash_developer'] = array(
+    'title' => 'Digital Goverment Strategy developer page',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('slash_developer_settings'),
+    'access arguments' => array('configure slash developer'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'slash_developer.admin.inc',
+  );
   return $items;
+}
+
+function slash_developer_permission() {
+  return array(
+    'configure_slash_developer' => array(
+      'title' => t('Configure slash developer'),
+      'description' => t('Configure settings for the digital strategy developer page.'),
+    ),
+  );
 }

@@ -26,3 +26,4 @@ features[variable][] = menu_parent_slash_developer_api
 features[variable][] = node_options_slash_developer_api
 features[variable][] = node_preview_slash_developer_api
 features[variable][] = node_submitted_slash_developer_api
+configure = admin/config/digitalstrategy/slashdeveloper

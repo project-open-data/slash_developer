@@ -7,7 +7,7 @@
  * Landing page for /developer goodies
  */
 function slash_developer_home() {
-  return t('Happy Fun Time');
+  return t(variable_get('slash_developer_page_body', 'Happy Fun Time'));
 }
 
 /**
@@ -31,5 +31,3 @@ function slash_developer_catalog() {
     return t("No APIs have been created yet. !link", array('!link' => l(t('Create One?'), 'node/add/slash-developer-api')));
   }
 }
-
-

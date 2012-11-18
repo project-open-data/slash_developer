@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * slash_developer.install.inc
+ */
+
+/**
+ * Implements hook_install().
+ */
+function slash_developer_install() {
+  variable_set('slash_developer_page_enable', '0');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function slash_developer_uninstall() {
+  variable_del('slash_developer_page_enable');
+  variable_del('slash_developer_page_body');
+}
+
